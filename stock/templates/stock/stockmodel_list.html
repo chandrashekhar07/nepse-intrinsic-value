@@ -1,0 +1,100 @@
+{% extends "base.html" %} {%block content%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>
+      <a href="{%url 'stockapp:create' %}">Add a stock </a>
+    </h1>
+    <div class="container text-center">
+      <table
+        data-toggle="table"
+        data-classes="table table-hover table-condensed"
+        data-striped="true"
+        data-sort-name="Quality"
+        data-sort-order="desc"
+      >
+        <thead>
+          <tr>
+            <th data-formatter="runningFormatter" data-sortable="true">
+              Index
+            </th>
+            <th class="col-xs-1" data-field="Name" data-sortable="true">
+              Name
+            </th>
+            <th class="col-xs-1" data-field="Price" data-sortable="true">
+              Price
+            </th>
+
+
+            <th class="col-xs-1" data-field="Dates" data-sortable="true">
+              Dates
+            </th>
+            
+
+            <th class="col-xs-1" data-field="Intrensic" data-sortable="true">
+              Dividend yield %
+            </th>
+
+            <th class="col-xs-1" data-field="IntrensicValue" data-sortable="true">
+              Intrensic value
+            </th>
+
+            <th class="col-xs-1" data-field="Difference" data-sortable="true">
+              Difference
+            </th>
+
+
+            <th class="col-xs-1" data-field="Graham" data-sortable="true">
+              Graham
+            </th>
+
+
+              
+            <th class="col-xs-1" data-field="Type" data-sortable="true">
+           Type
+            </th>
+
+            
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for stock in object_list %} {% load djangotemplatetags %}
+          <tr>
+            <td></td>
+            <td>{{stock.symbol}}</td>
+            <td>{{stock.price}}</td>
+            <td>{{stock.date}}</td>
+            <td>{{stock|interest:"0"}}</td>
+            <td>{{stock|calcvalue:"0"}}</td>
+            <td>{{stock|difference:"0"}}</td>
+            <td>{{stock|graham:'0'}}</td>
+            <td>{{stock.category}}</td>
+            <td>
+              <a href="{% url 'stockapp:update' id=stock.id %}"> edit</a>
+            </td>
+            <td>
+              <a href="{% url 'stockapp:delete' pk=stock.id %}"> delete</a>
+            </td>
+          </tr>
+          {%endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      function runningFormatter(value, row, index) {
+        return index;
+      }
+    </script>
+  </body>
+</html>
+{%endblock%}
