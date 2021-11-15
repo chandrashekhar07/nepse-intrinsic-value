@@ -62,6 +62,11 @@
             </th>
 
             
+         <th class="col-xs-1" data-field="Year" data-sortable="true">
+           year
+            </th>
+
+            
             <th></th>
             <th></th>
           </tr>
@@ -78,6 +83,7 @@
             <td>{{stock|difference:"0"}}</td>
             <td>{{stock|graham:'0'}}</td>
             <td>{{stock.category}}</td>
+            <td>{{stock.year}}</td>
             <td>
               <a href="{% url 'stockapp:update' id=stock.id %}"> edit</a>
             </td>
