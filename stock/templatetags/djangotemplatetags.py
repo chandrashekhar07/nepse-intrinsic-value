@@ -1,6 +1,6 @@
 from django import template
 import math
-FdInterestRate = 9.36 # NICA -  3 months
+FdInterestRate = 10.05 # avg
 savingInterestRate = 5.86  # BOK
 
 register = template.Library()
