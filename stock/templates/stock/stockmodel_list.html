@@ -38,8 +38,12 @@
             </th>
             
 
-            <th class="col-xs-1" data-field="Intrensic" data-sortable="true">
-              Dividend yield %
+            <th class="col-xs-1" data-field="yield" data-sortable="true">
+             yield %
+            </th>
+
+            <th class="col-xs-1" data-field="eps" data-sortable="true">
+              EPS
             </th>
 
             <th class="col-xs-1" data-field="IntrensicValue" data-sortable="true">
@@ -79,6 +83,7 @@
             <td>{{stock.price}}</td>
             <td>{{stock.date}}</td>
             <td>{{stock|interest:"0"}}</td>
+            <td>{{stock.eps}}</td>
             <td>{{stock|calcvalue:"0"}}</td>
             <td>{{stock|difference:"0"}}</td>
             <td>{{stock|graham:'0'}}</td>
