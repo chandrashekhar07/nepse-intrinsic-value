@@ -12,6 +12,20 @@
     <h1>
       <a href="{%url 'stockapp:create' %}">Add a stock </a>
     </h1>
+
+    <form>
+      <label for="type">Choose Type:</label>
+      <select id="type" name="type">
+        <option value="Commercial Bank">Commercial Bank</option>
+        <option value="Development Banks">Development Bank</option>
+        <option value="Finance">Finance</option>
+        <option value="Microfinance">Microfinance</option>
+        <option value="Life Insurance">Life Insurance</option>
+        <option value="Non Life Insurance">Non Life Insurance</option>
+      </select>
+      <input type="submit" />
+    </form>
+
     <div class="container text-center">
       <table
         data-toggle="table"
@@ -32,45 +46,44 @@
               Price
             </th>
 
-
             <th class="col-xs-1" data-field="Dates" data-sortable="true">
               Dates
             </th>
-            
 
             <th class="col-xs-1" data-field="yield" data-sortable="true">
-             yield %
+              yield %
             </th>
 
-            <th class="col-xs-1" data-field="eps" data-sortable="true">
-              EPS
-            </th>
+            <th class="col-xs-1" data-field="eps" data-sortable="true">EPS</th>
 
-            <th class="col-xs-1" data-field="IntrensicValue" data-sortable="true">
-              Intrensic value
+            <th
+              class="col-xs-1"
+              data-field="IntrensicValue"
+              data-sortable="true"
+            >
+              value
             </th>
 
             <th class="col-xs-1" data-field="Difference" data-sortable="true">
               Difference
             </th>
 
+            <th class="col-xs-1" data-field="Diff" data-sortable="true">
+              Diff %
+            </th>
 
             <th class="col-xs-1" data-field="Graham" data-sortable="true">
               Graham
             </th>
 
-
-              
             <th class="col-xs-1" data-field="Type" data-sortable="true">
-           Type
+              Type
             </th>
 
-            
-         <th class="col-xs-1" data-field="Year" data-sortable="true">
-           year
+            <th class="col-xs-1" data-field="Year" data-sortable="true">
+              year
             </th>
 
-            
             <th></th>
             <th></th>
           </tr>
@@ -86,6 +99,7 @@
             <td>{{stock.eps}}</td>
             <td>{{stock|calcvalue:"0"}}</td>
             <td>{{stock|difference:"0"}}</td>
+            <td>{{stock|percentage_difference:"0"}}</td>
             <td>{{stock|graham:'0'}}</td>
             <td>{{stock.category}}</td>
             <td>{{stock.year}}</td>

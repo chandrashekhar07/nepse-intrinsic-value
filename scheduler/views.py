@@ -22,7 +22,7 @@ def getDetails(request):
                     item.date = date
                  
                     item.save()
-                    print(item.price)
+                    print(item.symbol,item.price)
 
                 except Exception as e:
                     print("Error updating",item)

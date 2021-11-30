@@ -48,6 +48,14 @@ def difference(value, arg):
     difference = round(float(value.price)-float(calcvalue(value, arg)), 2)
     return arg.replace(str(arg), str(difference))
 
+@register.filter(name="percentage_difference")
+def percentage_difference(value,arg):
+    intrinsic_value=float(calcvalue(value, arg))
+    difference = round(float(value.price)-intrinsic_value, 2)
+    perc_diff = round((value.price-intrinsic_value)/value.price*100,2)
+    return arg.replace(str(arg),str(perc_diff))
+    
+
 
 @register.filter(name="graham")
 def graham(value, arg):

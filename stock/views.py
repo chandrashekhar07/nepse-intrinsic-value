@@ -9,6 +9,15 @@ class StockListView(ListView):
     model = StockModel
     template_name ="stock/stockmodel_list.html"
 
+    def get_queryset(self):
+        request = self.request
+        query = request.GET.get("type", None)
+
+        if query is not None:
+            return StockModel.objects.filter(category=query)
+
+        return StockModel.objects.all()
+
 class StockCreateView(CreateView):
     template_name='stock/stockmodel_form.html'
     form_class = StockModelForm
