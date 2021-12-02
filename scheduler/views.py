@@ -20,6 +20,7 @@ def getDetails(request):
                                    
                     item.price = data[1].replace(",","")
                     item.date = date
+                    item.symbol = item.symbol.upper()
                  
                     item.save()
                     print(item.symbol,item.price)
