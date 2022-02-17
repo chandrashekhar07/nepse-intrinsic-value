@@ -1,6 +1,6 @@
 from django import template
 import math
-FdInterestRate = 10.05  # avg
+FdInterestRate = 11.03  # avg
 savingInterestRate = 6.55  # BOK
 
 register = template.Library()
