@@ -23,10 +23,14 @@
         <option value="Life Insurance">Life Insurance</option>
         <option value="Non Life Insurance">Non Life Insurance</option>
         <option value="Hydropower">Hydropower</option>
-
       </select>
       <input type="submit" />
     </form>
+
+    <div>Avarage ROE: {{avg_roe}}</div>
+    <div>Avarage EPS: {{avg_eps}}</div>
+    <div>Avarage Price: {{avg_price}}</div>
+    <div>Avarage Book Value: {{avg_book_value}}</div>
 
     <div class="container text-center">
       <table
@@ -52,10 +56,6 @@
               Dates
             </th>
 
-            <th class="col-xs-1" data-field="yield" data-sortable="true">
-              yield %
-            </th>
-
             <th class="col-xs-1" data-field="eps" data-sortable="true">EPS</th>
 
             <th
@@ -78,9 +78,7 @@
               Graham
             </th>
 
-            <th class="col-xs-1" data-field="Type" data-sortable="true">
-              Type
-            </th>
+            <th class="col-xs-1" data-field="Type" data-sortable="true">ROE</th>
 
             <th class="col-xs-1" data-field="Year" data-sortable="true">
               year
@@ -97,13 +95,13 @@
             <td>{{stock.symbol}}</td>
             <td>{{stock.price}}</td>
             <td>{{stock.date}}</td>
-            <td>{{stock|interest:"0"}}</td>
+
             <td>{{stock.eps}}</td>
             <td>{{stock|calcvalue:"0"}}</td>
             <td>{{stock|difference:"0"}}</td>
             <td>{{stock|percentage_difference:"0"}}</td>
             <td>{{stock|graham:'0'}}</td>
-            <td>{{stock.category}}</td>
+            <td>{{stock.roe}}</td>
             <td>{{stock.year}}</td>
             <td>
               <a href="{% url 'stockapp:update' id=stock.id %}"> edit</a>

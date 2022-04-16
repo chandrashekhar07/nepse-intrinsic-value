@@ -14,11 +14,8 @@ def calcvalue(value, arg):
     if value.category == "Life Insurance":
         dps = value.eps
 
-    if value.category == "Microfinance":
-        if value.eps <= 20:
-            dps = value.eps
-        else:
-            dps = (value.eps+20)/2
+    elif value.category == "Microfinance":
+        dps = value.eps if value.eps <= 20 else (value.eps+20)/2
 
     else:
         dps = 0.79*value.eps
@@ -35,15 +32,14 @@ def calcvalue(value, arg):
 def interest(value, arg):
 
     dps = 0
-    
+
     if value.category == "Life Insurance":
         dps = value.eps
 
-    if value.category == "Microfinance":
-        if value.eps <= 20:
-            dps = value.eps
-        else:
-            dps = (value.eps+20)/2
+    elif value.category == "Microfinance":
+
+        dps = value.eps if value.eps <= 20 else (value.eps+20)/2
+
     else:
         dps = 0.79*value.eps
 
@@ -73,10 +69,8 @@ def graham(value, arg):
         dps = value.eps
 
     if value.category == "Microfinance":
-        if value.eps <= 20:
-            dps = value.eps
-        else:
-            dps = (value.eps+20)/2
+        dps = value.eps if value.eps <= 20 else (value.eps+20)/2
+
     else:
         dps = 0.79*value.eps
 
